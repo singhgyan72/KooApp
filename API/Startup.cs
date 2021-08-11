@@ -24,6 +24,8 @@ namespace API
             {
                 options.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
             });
+            //Adding service for CORS support
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +37,9 @@ namespace API
             }
 
             app.UseRouting();
+
+            //Allow CORS policy
+            app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
 
             app.UseAuthorization();
 
