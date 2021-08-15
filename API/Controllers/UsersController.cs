@@ -29,6 +29,7 @@ namespace API.Controllers
         {
             //var users = await _userRepository.GetUsersAsync();
             //var usersToRetun = _mapper.Map<IEnumerable<MemberDto>>(users);
+            //return Ok(usersToRetun);
 
             var users = await _userRepository.GetMembersAsync();
             return Ok(users);
